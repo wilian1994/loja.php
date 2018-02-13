@@ -1,25 +1,25 @@
-<?php
-include("cabecalho.php");
+<?php include("cabecalho.php"); ?>
+<?php include("conecta.php");
 
-function insereProduto($conexao, $nome, $preco){
-    $query = "insert into produtos (nome, preco) values ('{$nome}', {$preco})";
+function insereProduto($conexao, $produto, $estoqueMinimo ){
+    $query = "insert into produtos (produto, estoqueMinimo) values ('{$produto}', {$estoqueMinimo})";
     return mysqli_query($conexao, $query);
 }
 
 
-$nome = $_GET["nome"];
-$preco = $_GET["preco"];
+$produto = $_GET["produto"];
+$estoqueMinimo = $_GET["estoqueMinimo"];
 
 
-$conexao = mysqli_connect('localhost', 'root', '', 'loja');
+    $conexao = mysqli_connect('localhost', 'root', '', 'loja');
 
-if(insereProduto($conexao, $nome, $preco)) {
+if(insereProduto($conexao, $produto, $estoqueMinimo)) {
 ?>
-<p class="text-success">Produto <?= $nome; ?>, <?= $preco; ?> adicionado com sucesso!</p>
+<p class="text-success">Produto adicionado com sucesso!</p>
 <?php
 } else {
 ?>
-<p class="text-danger">O produto <? = $nome; ?> não foi adicionado</p>
+<p class="text-danger">O produto <? = $produto; ?> não foi adicionado</p>
 <?php
 }
 ?>
