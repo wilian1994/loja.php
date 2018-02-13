@@ -1,7 +1,12 @@
 <?php include("cabecalho.php");
  include("conecta.php");
  include("banco-produto.php");
- ?>
+ 
+$id = $_GET['id'];
+
+$produto = buscaProduto($conexao, $id);
+?>
+
 
 <div class="content-wrapper">
     <div class="container-fluid">
@@ -12,13 +17,15 @@
         </li>
         <li class="breadcrumb-item active">Blank Page</li>
       </ol>
-    <form action="adiciona-produto.php" method="POST">
+    <form action="altera-produto.php" method="POST">
+        <input type="hidden" name="id" value="<?=$produto['id']?>">
         <div class="row">
             <div class="col-lg-offset-3 col-lg-4">
                 <label class='control-label'>Produto</label>
                 <div class="input-group">
                 
-                <input type="text" class="form-control" name="produto" placeholder="Produto">
+                <input type="text" class="form-control" name="produto" placeholder="Produto" 
+                  value="<?=$produto['produto']?>">
                 
                 </div>
             </div>
@@ -27,7 +34,8 @@
                 <label class='control-label'>Estoque Mínimo</label>
             <div class="input-group">
                 
-                <input type="text" class="form-control" name="estoqueMinimo" placeholder="Estoque Mínimo">
+                <input type="text" class="form-control" name="estoqueMinimo" value="<?=$produto['estoqueMinimo']?>"
+                 placeholder="Estoque Mínimo">
                 <span class="input-group-btn">
                 <button class="btn btn-primary" type="submit">Salvar</button>
                 </span>
@@ -79,9 +87,11 @@
                   <td>
                     <form action="remove-produto.php" method="post">
                       <input type="hidden" name="id" value="<?=$produto['id']?>">
-                      <button  class="btn btn-danger btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" ><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                      <button  class="btn btn-danger btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" >
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                      </button>
                     </form>               
-                    <a href="produto-altera-produto.php?id=<?=$produto['id']?>">
+                    <a href="altera-produto.php?id=<?=$produto['id']?>">
                       <button  class="btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" >
                           <i class="fa fa-pencil" aria-hidden="true"></i>
                       </button>
@@ -92,6 +102,7 @@
             <?php
             }
             ?>
+
             </table>
           </div>
         </div>
