@@ -40,12 +40,12 @@
         </div>
     </form>
       <hr >
-      <?php
-        if( array_key_exists("removido", $_GET) && $_GET['removido']=="true"){
-      ?>
-          <p class="alert-success">Produto apagado com sucesso!</p>
-      <?php
-            }
+      <?php if(isset($_SESSION["sucess"])){?>
+        <p class="alert-danger"><?=$_SESSION["sucess"]?></p>
+      <?php }?>
+
+      <?php 
+          unset($_SESSION["sucess"]);
       ?>
       <div class="card mb-3">
           <div class="table-responsive">

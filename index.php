@@ -1,19 +1,20 @@
 <?php include("regra-negocio-usuario.php"); ?>
 
-<?php if(isset($_GET['login']) && $_GET['login'] == true){ ?>
-    <p class="alert-sucess"> Logado com sucesso</p>
-<?php }?>
-<?php if(isset($_GET['login']) && $_GET['login'] == false){ ?>
-    <p class="alert-danger"> Inválido</p>
-<?php } ?>
-
-<?php if(isset($_GET['logout']) && $_GET['logout'] == true){ ?>
-    <p class="alert-sucess"> Deslogado com sucesso</p>
+<?php if(isset($_SESSION["sucess"])){?>
+    <p class="alert-danger"><?=$_SESSION["sucess"]?></p>
 <?php }?>
 
-<?php if(isset($_GET["falhaDeSeguranca"]) && $_GET["falhaDeSeguranca"] == true){?>
-    <p class="alert-danger"> Você não tem acesso a essa página</p>
+<?php 
+    unset($_SESSION["sucess"]);
+?>
+
+<?php if(isset($_SESSION["danger"])){?>
+    <p class="alert-danger"><?=$_SESSION["danger"]?></p>
 <?php }?>
+
+<?php 
+    unset($_SESSION["danger"]);
+?>
 
 <html lang="en">
 
