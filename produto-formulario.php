@@ -2,6 +2,7 @@
  include("conecta.php");
  include("banco-produto.php");
  include("regra-negocio-usuario.php");
+ include("mostra-alerta.php");
 
  verificaUsuario();
 
@@ -40,13 +41,7 @@
         </div>
     </form>
       <hr >
-      <?php if(isset($_SESSION["sucess"])){?>
-        <p class="alert-danger"><?=$_SESSION["sucess"]?></p>
-      <?php }?>
-
-      <?php 
-          unset($_SESSION["sucess"]);
-      ?>
+      <?php  mostraAlerta("success");  ?>
       <div class="card mb-3">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

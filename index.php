@@ -1,20 +1,6 @@
-<?php include("regra-negocio-usuario.php"); ?>
+<?php include("regra-negocio-usuario.php");?>
 
-<?php if(isset($_SESSION["sucess"])){?>
-    <p class="alert-danger"><?=$_SESSION["sucess"]?></p>
-<?php }?>
-
-<?php 
-    unset($_SESSION["sucess"]);
-?>
-
-<?php if(isset($_SESSION["danger"])){?>
-    <p class="alert-danger"><?=$_SESSION["danger"]?></p>
-<?php }?>
-
-<?php 
-    unset($_SESSION["danger"]);
-?>
+<?php   mostraAlerta("danger");?>
 
 <html lang="en">
 
