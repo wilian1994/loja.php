@@ -63,7 +63,7 @@
               <a href="form.html">Encomenda</a>
             </li>
             <li>
-              <a href="form_produto.html">Produto</a>
+              <a href="produto-formulario.php">Produto</a>
             </li>
             <li>
               <a href="form_loja.html">Loja</a>
@@ -84,7 +84,7 @@
       </ul>
       <ul class="navbar-nav ml-auto">        
         <li class="nav-item">
-          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+          <a class="nav-link" href="logout.php" data-toggle="modal" data-target="#exampleModal">
             <i class="fa fa-fw fa-sign-out"></i>Logout</a>
         </li>
       </ul>

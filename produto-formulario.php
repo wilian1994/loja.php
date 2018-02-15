@@ -1,6 +1,10 @@
 <?php include("cabecalho.php");
  include("conecta.php");
  include("banco-produto.php");
+ include("regra-negocio-usuario.php");
+
+ verificaUsuario();
+
  ?>
 
 <div class="content-wrapper">
